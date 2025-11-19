@@ -3,123 +3,208 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contoh Landing Page</title>
+  <title>Amirin Rosli — Creative Designer</title>
+  <meta name="description" content="Portfolio Amirin Rosli — Creative Designer. Projek, kemahiran dan cara hubungi." />
   <style>
-    /* Reset ringkas */
+    :root{--bg:#071422;--card:#0b2130;--muted:#9fb6c1;--accent:#20c997;--glass:rgba(255,255,255,0.03);--radius:12px;--maxw:1100px;--ff:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial}
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; line-height:1.5;color:#111}
-    a{color:inherit;text-decoration:none}
+    html,body{height:100%}
+    body{font-family:var(--ff);background:linear-gradient(180deg,var(--bg),#021018);color:#e6f2f3;padding:24px}
+    .wrap{max-width:var(--maxw);margin:0 auto}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+    .brand{font-weight:800;font-size:1.05rem;letter-spacing:0.6px}
+    nav{display:flex;gap:10px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px;border-radius:8px}
+    nav a:hover{color:var(--accent)}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px}
 
-    /* Layout */
-    .container{max-width:1000px;margin:0 auto;padding:24px}
-    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{font-weight:700;font-size:1.1rem}
-    nav{display:flex;gap:16px}
-    .btn{padding:8px 14px;border-radius:8px;border:1px solid #111;display:inline-block}
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:26px;align-items:center}
+    .intro h1{font-size:2rem;margin-bottom:8px}
+    .intro p{color:var(--muted);margin-bottom:14px}
+    .cta{display:flex;gap:10px}
+    .primary{background:linear-gradient(90deg,var(--accent),#60e6bf);color:#002;border:none;padding:10px 14px;border-radius:10px;font-weight:700}
 
-    /* Hero */
-    .hero{display:flex;flex-direction:column;gap:18px;padding:48px 0}
-    .hero h1{font-size:2rem;line-height:1.05}
-    .hero p{color:#444}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);padding:16px;border-radius:var(--radius)}
 
-    /* Features */
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
-    .card{padding:16px;border-radius:12px;border:1px solid #eee;box-shadow:0 2px 6px rgba(0,0,0,0.04)}
+    .profile{display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center}
+    .avatar{width:160px;height:160px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.06)}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+    .skill{padding:6px 10px;border-radius:999px;background:var(--glass);color:var(--muted);font-size:0.9rem}
 
-    /* Footer */
-    footer{margin-top:40px;padding:18px 0;color:#666;font-size:.9rem;text-align:center}
+    section{margin-top:24px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .proj{display:flex;flex-direction:column;gap:10px}
+    .proj .thumb{height:140px;border-radius:10px;overflow:hidden}
+    .proj .thumb img{width:100%;height:100%;object-fit:cover}
+    .proj h4{margin:0}
+    .proj p{color:var(--muted);font-size:0.95rem}
 
-    /* Responsive */
-    @media (max-width:800px){
-      .grid{grid-template-columns:1fr}
-      header{gap:12px}
-      .hero{padding:28px 0}
-    }
+    footer{margin-top:36px;color:var(--muted);font-size:0.92rem;text-align:center}
 
-    /* Mobile nav toggle */
-    .hamburger{display:none;cursor:pointer}
-    @media (max-width:800px){
-      nav{display:none;flex-direction:column;background:#fff;position:absolute;right:24px;top:64px;padding:12px;border-radius:8px;border:1px solid #eee}
-      .hamburger{display:block}
-      nav.open{display:flex}
-    }
+    form{display:grid;gap:8px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.05);padding:10px;border-radius:8px;color:inherit}
+    textarea{min-height:100px}
+
+    @media (max-width:980px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){.grid{grid-template-columns:1fr}.avatar{width:140px;height:140px}header{flex-direction:column;align-items:flex-start;gap:12px}nav{flex-wrap:wrap}}
+
+    .whatsapp{position:fixed;right:18px;bottom:18px;background:var(--accent);color:#002;padding:12px 14px;border-radius:999px;font-weight:700;box-shadow:0 6px 20px rgba(32,201,151,0.16);text-decoration:none}
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="wrap">
     <header>
-      <div class="brand">NamaSite</div>
-      <div style="display:flex;align-items:center;gap:12px">
-        <nav id="nav">
-          <a href="#features">Features</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <button class="btn" onclick="location.href='#contact'">Hubungi</button>
-        <div class="hamburger" id="hamb">☰</div>
-      </div>
+      <div class="brand">Amirin Rosli — Creative Designer</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projek</a>
+        <a href="#contact">Hubungi</a>
+        <a class="btn" href="#download">Download CV</a>
+      </nav>
     </header>
 
     <main>
       <section class="hero">
-        <h1>Buat website mudah — cepat & cantik.</h1>
-        <p>Contoh ini ialah template asas. Sesuaikan teks, gambar dan warna ikut citarasa. Tiada pemasangan, buka sahaja `index.html` dalam browser untuk preview.</p>
         <div>
-          <a class="btn" href="#features">Mula</a>
+          <div class="intro card">
+            <h1>Hai, aku <strong>Amirin Rosli</strong></h1>
+            <p>Seorang pereka kreatif yang fokus pada design moden & branding.</p>
+            <div class="cta">
+              <a class="primary" href="#contact">Sewa aku</a>
+              <a class="btn" href="#projects">Lihat Projek</a>
+            </div>
+            <div style="margin-top:12px;color:var(--muted)">Lokasi • Malaysia • Boleh remote</div>
+          </div>
+
+          <section id="projects">
+            <h2 style="margin:12px 0">Projek Pilihan</h2>
+            <div class="grid">
+              <div class="proj card">
+                <div class="thumb"><img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=800&auto=format&fit=crop" alt="Branding Project"></div>
+                <h4>Brand Identity — Cafe Launch</h4>
+                <p>Reka bentuk identiti penuh untuk jenama kafe, termasuk logo, palet warna, dan guideline ringkas.</p>
+                <div style="display:flex;gap:8px;margin-top:auto">
+                  <a class="btn" href="#">Case Study</a>
+                  <a class="btn" href="#">Lihat</a>
+                </div>
+              </div>
+
+              <div class="proj card">
+                <div class="thumb"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=800&auto=format&fit=crop" alt="UI Project"></div>
+                <h4>UI Kit — Marketplace</h4>
+                <p>Kit UI untuk marketplace kecil, komponen siap guna dan panduan gaya untuk pembangunan pantas.</p>
+                <div style="display:flex;gap:8px;margin-top:auto">
+                  <a class="btn" href="#">Case Study</a>
+                  <a class="btn" href="#">Lihat</a>
+                </div>
+              </div>
+
+              <div class="proj card">
+                <div class="thumb"><img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800&auto=format&fit=crop" alt="Packaging"></div>
+                <h4>Packaging — Product Box</h4>
+                <p>Reka bentuk pembungkusan untuk produk niche, fokus pada shelf impact dan storytelling visual.</p>
+                <div style="display:flex;gap:8px;margin-top:auto">
+                  <a class="btn" href="#">Case Study</a>
+                  <a class="btn" href="#">Lihat</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <aside class="card profile">
+          <div class="avatar"><img src="/mnt/data/avatar_amirin.png" alt="Amirin Rosli"></div>
+          <h3>Amirin Rosli</h3>
+          <div style="color:var(--muted)">Creative Designer</div>
+          <div class="skills" style="margin-top:10px">
+            <div class="skill">Branding</div>
+            <div class="skill">Packaging</div>
+            <div class="skill">UI/UX</div>
+            <div class="skill">Illustration</div>
+            <div class="skill">Adobe CC</div>
+          </div>
+          <div style="margin-top:12px;width:100%">
+            <a class="btn" href="mailto:amirinrosli7@gmail.com">Email</a>
+            <a class="btn" style="margin-left:8px" href="#download">Download CV</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about">
+        <h2>About</h2>
+        <div class="card" style="margin-top:8px">
+          <p style="color:var(--muted)">Seorang pereka kreatif yang fokus pada design moden & branding. Saya membantu jenama bercerita melalui identiti visual dan pengalaman produk.</p>
         </div>
       </section>
 
-      <section id="features">
-        <div class="grid">
+      <section id="contact">
+        <h2 style="margin-top:18px">Hubungi</h2>
+        <div style="display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:8px">
           <div class="card">
-            <h3>Mudah disesuaikan</h3>
-            <p>Edit HTML/CSS terus — sesuai untuk pemula.</p>
+            <form onsubmit="event.preventDefault();sendForm();">
+              <label for="name">Nama</label>
+              <input id="name" placeholder="Nama anda" required />
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="email@domain.com" required />
+              <label for="msg">Mesej</label>
+              <textarea id="msg" placeholder="Tulis mesej..." required></textarea>
+              <div style="margin-top:8px">
+                <button class="primary" type="submit">Hantar</button>
+              </div>
+            </form>
+            <div id="form-result" style="margin-top:8px;color:var(--muted)"></div>
           </div>
+
           <div class="card">
-            <h3>Responsive</h3>
-            <p>Tampil elok pada telefon dan desktop.</p>
-          </div>
-          <div class="card">
-            <h3>Deploy cepat</h3>
-            <p>Boleh host percuma di GitHub Pages atau Vercel.</p>
+            <h3>Butiran</h3>
+            <p style="color:var(--muted)">Email: <a href="mailto:amirinrosli7@gmail.com">amirinrosli7@gmail.com</a></p>
+            <p style="color:var(--muted)">GitHub: <a href="https://github.com/amirinrosli7">github.com/amirinrosli7</a></p>
+            <p style="color:var(--muted)">LinkedIn: <a href="#">linkedin.com/in/username</a></p>
+            <div style="margin-top:12px">
+              <strong style="color:var(--muted)">Nota</strong>
+              <p style="color:var(--muted);font-size:0.95rem">Form ini hanya demo. Untuk terima mesej sebenar, sambungkan Formspree atau Netlify Forms (aku boleh bantu kalau nak).</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="pricing" style="margin-top:28px">
-        <h2>Pelan ringkas</h2>
-        <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
-          <div class="card" style="flex:1;min-width:220px">
-            <h4>Percuma</h4>
-            <p>Hosting statik, domain github.io</p>
+      <section id="download" style="margin-top:22px">
+        <h2>Download</h2>
+        <div class="card" style="display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <strong>CV — Amirin Rosli</strong>
+            <div style="color:var(--muted);margin-top:6px">Gantikan dengan link CV sebenar jika mahu.</div>
           </div>
-          <div class="card" style="flex:1;min-width:220px">
-            <h4>Pro</h4>
-            <p>Domain sendiri + CDN + SSL automatik</p>
+          <div>
+            <a class="btn" href="#" onclick="alert('Gantikan dengan link CV atau fail sebenar')">Muat Turun</a>
           </div>
         </div>
       </section>
 
-      <section id="contact" style="margin-top:28px">
-        <h2>Hubungi</h2>
-        <p>Untuk form sebenar, perlu backend. Buat sementara guna <code>mailto:</code> atau gunakan Formspree / Netlify Forms.</p>
-        <p style="margin-top:8px"><a href="mailto:hello@namsite.com" class="btn">Email kami</a></p>
-      </section>
     </main>
 
     <footer>
-      © <span id="year"></span> NamaSite — Dibina cepat.
+      © <span id="year"></span> Amirin Rosli — Creative Designer.
     </footer>
   </div>
 
+  <a class="whatsapp" href="#" title="WhatsApp">WhatsApp</a>
+
   <script>
-    // Tahun automatik
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile nav toggle
-    const hamb = document.getElementById('hamb');
-    const nav = document.getElementById('nav');
-    hamb.addEventListener('click', () => nav.classList.toggle('open'));
+    function sendForm(){
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('msg').value.trim();
+      if(!name || !email || !msg) return;
+      document.getElementById('form-result').textContent = 'Terima kasih, mesej anda telah diterima (demo). Saya akan hubungi anda via email.';
+      document.getElementById('name').value='';
+      document.getElementById('email').value='';
+      document.getElementById('msg').value='';
+    }
   </script>
 </body>
 </html>
