@@ -51,7 +51,6 @@
     @media (max-width:980px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}}
     @media (max-width:640px){.grid{grid-template-columns:1fr}.avatar{width:140px;height:140px}header{flex-direction:column;gap:12px;align-items:flex-start}nav{flex-wrap:wrap}}
     .whatsapp{position:fixed;right:18px;bottom:18px;background:var(--accent);color:#002;padding:12px 14px;border-radius:999px;font-weight:700;text-decoration:none;box-shadow:0 6px 20px rgba(32,201,151,0.20)}
-    /* small UI touches */
     h2{font-size:1.3rem}
     h4{margin:0}
     .muted{color:var(--muted)}
@@ -62,6 +61,7 @@
     <header>
       <div class="brand" data-i18n="brand">Amirin Rosli — Creative Designer</div>
       <nav>
+        <a href="#" data-i18n="nav.home">Home</a>
         <a href="#about" data-i18n="nav.about">About</a>
         <a href="#services" data-i18n="nav.services">Services</a>
         <a href="#projects" data-i18n="nav.projects">Projek</a>
@@ -91,8 +91,7 @@
         </div>
 
         <aside class="card profile">
-  <img src="https://raw.githubusercontent.com/amirinrosli7/Creative-Design/main/avatar_amirin.png" alt="Amirin Rosli">
-</div>
+          <div class="avatar"><img src="assets/avatar_amirin.png" alt="Amirin Rosli"></div>
           <h3>Amirin Rosli</h3>
           <div style="color:var(--muted)">Creative Designer</div>
           <div class="skills" style="margin-top:10px">
@@ -109,7 +108,7 @@
         </aside>
       </section>
 
-      <!-- Services (Card Grid) -->
+      <!-- Services -->
       <section id="services" style="margin-top:28px">
         <h2 data-i18n="services.title">Perkhidmatan</h2>
         <div class="card" style="padding:14px">
@@ -164,35 +163,47 @@
       <section id="projects">
         <h2 data-i18n="projects.title">Projek Terpilih</h2>
         <div class="grid">
+
+          <!-- Project 1: guna gambar yang kau upload -->
           <div class="proj card">
-            <div class="thumb"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" alt="Projek 1"></div>
-            <h4>Project A — Landing Page</h4>
-            <p class="muted">Menerangkan ringkas projek: landing page produk, responsive, dan dioptimumkan untuk conversion.</p>
+            <div class="thumb">
+              <!-- sementara guna path tempatan yang kau upload -->
+              <img src="/mnt/data/5262563698134873936.jpg" alt="Projek 1">
+            </div>
+            <h4>Project 1 — Branding Concept</h4>
+            <p class="muted">Reka identiti jenama: logo, warna dan aplikasi visual untuk jenama A. (Gantikan deskripsi ini dengan ringkasan projek sebenar).</p>
             <div style="display:flex;gap:8px;margin-top:auto">
               <a class="btn" href="#" onclick="alert('Ganti dengan link projek')">Live</a>
               <a class="btn" href="#" onclick="alert('Ganti dengan repo')">Code</a>
             </div>
           </div>
 
+          <!-- Project 2: placeholder -->
           <div class="proj card">
-            <div class="thumb"><img src="https://images.unsplash.com/photo-1503424886302-1d1b5d7e2f2f?q=80&w=800&auto=format&fit=crop" alt="Projek 2"></div>
-            <h4>Project B — Portfolio</h4>
-            <p class="muted">Portfolio peribadi untuk pengkarya — sistem grid, lazy-loading images, dan modal preview.</p>
+            <div class="thumb">
+              <img src="https://images.unsplash.com/photo-1503424886302-1d1b5d7e2f2f?q=80&w=800&auto=format&fit=crop" alt="Projek 2">
+            </div>
+            <h4>Project 2 — Packaging Mockup</h4>
+            <p class="muted">Konsep pembungkusan produk untuk shelf-impact dan pemasaran offline/online.</p>
             <div style="display:flex;gap:8px;margin-top:auto">
               <a class="btn" href="#">Live</a>
               <a class="btn" href="#">Code</a>
             </div>
           </div>
 
+          <!-- Project 3: placeholder -->
           <div class="proj card">
-            <div class="thumb"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop" alt="Projek 3"></div>
-            <h4>Project C — Mini App</h4>
-            <p class="muted">Aplikasi kecil (to-do / notes) dengan sync dan UI ringkas. Sesuai untuk demonstrasi frontend.</p>
+            <div class="thumb">
+              <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop" alt="Projek 3">
+            </div>
+            <h4>Project 3 — Social Post Pack</h4>
+            <p class="muted">Set template social media: feed, story dan iklan untuk kempen digital.</p>
             <div style="display:flex;gap:8px;margin-top:auto">
               <a class="btn" href="#">Live</a>
               <a class="btn" href="#">Code</a>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -242,7 +253,7 @@
     </main>
 
     <footer>
-      <span id="footer-text">© <span id="year"></span> Amirin Rosli — Creative Designer.</span>
+      <span id="footer-text" data-i18n="footer">© <span id="year"></span> Amirin Rosli — Creative Designer.</span>
     </footer>
   </div>
 
@@ -257,7 +268,7 @@
 const i18n = {
   en: {
     "brand":"Amirin Rosli — Creative Designer",
-    "nav.about":"About","nav.services":"Services","nav.projects":"Projects","nav.contact":"Contact","nav.download":"Download CV",
+    "nav.home":"Home","nav.about":"About","nav.services":"Services","nav.projects":"Projects","nav.contact":"Contact","nav.download":"Download CV",
     "hero.hi":"Hi, I'm","hero.name":"Amirin Rosli","hero.lead":"A creative designer focused on modern design & branding.","hero.cta_hire":"Hire me","hero.cta_projects":"View Projects","hero.location":"Location • Malaysia • Remote ok",
     "services.title":"Services","services.lead":"Services I offer — from concept to print & digital.",
     "services.logo.title":"Logo Design","services.logo.desc":"Design distinctive, memorable logos for your brand.",
@@ -274,7 +285,7 @@ const i18n = {
   },
   ms: {
     "brand":"Amirin Rosli — Pereka Kreatif",
-    "nav.about":"About","nav.services":"Perkhidmatan","nav.projects":"Projek","nav.contact":"Hubungi","nav.download":"Muat Turun CV",
+    "nav.home":"Utama","nav.about":"About","nav.services":"Perkhidmatan","nav.projects":"Projek","nav.contact":"Hubungi","nav.download":"Muat Turun CV",
     "hero.hi":"Hai, aku","hero.name":"Amirin Rosli","hero.lead":"Seorang pereka kreatif yang fokus pada design moden & branding.","hero.cta_hire":"Sewa aku","hero.cta_projects":"Lihat Projek","hero.location":"Lokasi • Malaysia • Boleh remote",
     "services.title":"Perkhidmatan","services.lead":"Perkhidmatan yang saya tawarkan — dari konsep hingga cetak & digital.",
     "services.logo.title":"Reka Logo","services.logo.desc":"Reka logo unik & mudah diingati untuk jenama anda.",
@@ -351,6 +362,3 @@ function sendForm(){
   </script>
 </body>
 </html>
-
-
-
